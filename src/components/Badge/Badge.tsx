@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Image from "next/image";
 
 interface Props {
   src: string;
@@ -9,7 +8,7 @@ interface Props {
 const Badge = ({ src }: Props) => {
   return (
     <Picture>
-      <Image loading="lazy" decoding="async" alt="JavaScript badge" src={src} />
+      <img loading="lazy" decoding="async" alt={`${src} badge`} src={src} />
     </Picture>
   );
 };
