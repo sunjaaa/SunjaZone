@@ -47,7 +47,7 @@ const NavBar = () => {
           <NavItem>
             <NavLink
               href={NAV.HREF.ABOUT}
-              isActive={currentRoute === NAV.HREF.ISSUE}
+              isActive={currentRoute === NAV.HREF.ABOUT}
             >
               {NAV.PAGE.ABOUT}
             </NavLink>
