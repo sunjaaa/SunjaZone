@@ -3,7 +3,7 @@ import Image from "next/image";
 
 interface Props {
   icon: string;
-  size: number;
+  size?: number;
 }
 
 const Icon = ({ icon, size }: Props) => {
