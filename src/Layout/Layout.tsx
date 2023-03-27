@@ -8,11 +8,7 @@ interface LayoutProps {
   footer?: React.ReactNode;
 }
 
-const Layout: React.FunctionComponent = ({
-  header,
-  main,
-  footer,
-}: LayoutProps) => {
+const Layout = ({ header, main, footer }: LayoutProps) => {
   return (
     <Container>
       <Header>{header}</Header>
