@@ -27,7 +27,7 @@ export default Main;
 const Container = styled.div`
   display: flex;
   flex: 1;
-  width: 100dvw;
+  width: 100vw;
   justify-content: center;
 `;
 
