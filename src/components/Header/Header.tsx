@@ -2,32 +2,34 @@ import React from "react";
 import NavBar from "@/components/NavBar/NavBar";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import { content } from "@/constants/index";
+import { content, NAV } from "@/constants/index";
 import Icon from "../Icon/Icon";
 
 const Header = () => {
   return (
     <Container>
-      <NavBar />
-      <ImageBox>
-        <Favicon>
-          <Link href="/">
+      <Wrapper>
+        <NavBar />
+        <ImageBox>
+          <Link href={NAV.HREF.ROOT}>
             <Icon icon="logo" size={36} />
           </Link>
-        </Favicon>
-      </ImageBox>
+        </ImageBox>
+      </Wrapper>
     </Container>
   );
 };
 
 export default Header;
-
 const Container = styled.div`
   display: flex;
   flex: 1;
-  align-items: center;
-  padding-left: 28%;
-  padding-right: 28%;
+  justify-content: center;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 50rem;
   border-style: solid;
   border-top-width: thin;
   border-bottom-width: thin;
@@ -40,12 +42,7 @@ const ImageBox = styled.div`
   display: flex;
   flex: 1;
   height: 100%;
-`;
-
-const Favicon = styled.div`
-  display: flex;
-  flex: 1;
-  align-self: center;
   justify-content: flex-end;
-  margin-top: 10%;
+  align-items: center;
+  margin-right: 16px;
 `;

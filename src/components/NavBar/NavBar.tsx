@@ -66,6 +66,7 @@ const NavContainer = styled.div`
   height: 100%;
   text-align: center;
   align-items: center;
+  margin-left: 16px;
 `;
 
 const NavList = styled.ul`

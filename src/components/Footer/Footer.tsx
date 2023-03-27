@@ -45,21 +45,20 @@ export default Footer;
 const Container = styled.div`
   display: flex;
   flex: 1;
-  margin-left: 28%;
-  margin-right: 28%;
+  justify-content: center;
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  width: 50rem;
+  margin: 48px 0 48px 0;
 `;
 
 const Box = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 0 16px 0 16px;
 `;
 const IconWrapper = styled.div`
   display: flex;
@@ -83,4 +82,6 @@ const WebName = styled.p`
   font-size: 16px;
   color: ${content.gray.a2};
   font-weight: 700;
+  margin-left: 16px;
+  margin-right: 16px;
 `;

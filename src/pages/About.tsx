@@ -27,8 +27,8 @@ const Container = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-left: 28%;
-  margin-right: 28%;
+  /* margin-left: 28%;
+  margin-right: 28%; */
 `;
 
 const BadgeContainer = styled.picture`

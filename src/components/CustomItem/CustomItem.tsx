@@ -20,15 +20,17 @@ const CustomItem = ({
 }: Props) => {
   return (
     <Container>
-      <TitleBox>
-        <Icon>{icon}</Icon>
-        <Title>{title}</Title>
-      </TitleBox>
-      <ContentBox>
-        <SubTitle>{subtitle}</SubTitle>
-        <Description>{description}</Description>
-        <Duration>{duration}</Duration>
-      </ContentBox>
+      <Wrapper>
+        <TitleBox>
+          <Icon>{icon}</Icon>
+          <Title>{title}</Title>
+        </TitleBox>
+        <ContentBox>
+          <SubTitle>{subtitle}</SubTitle>
+          <Description>{description}</Description>
+          <Duration>{duration}</Duration>
+        </ContentBox>
+      </Wrapper>
     </Container>
   );
 };
@@ -38,8 +40,14 @@ export default CustomItem;
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 10vh;
-  padding: 12px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 10dvh;
+  padding: 11px 11px 11px 11px;
+  margin: 0 16px 0 16px;
   border-radius: 12px;
   border: solid;
   border-color: transparent;
@@ -50,11 +58,11 @@ const Container = styled.div`
     border-color: ${content.gray.a4};
   }
 `;
+
 const TitleBox = styled.div`
   display: flex;
   flex: 1;
   align-self: flex-start;
-  margin-top: 2%;
 `;
 
 const ContentBox = styled.div`
@@ -62,12 +70,10 @@ const ContentBox = styled.div`
   flex: 2;
   flex-direction: column;
   align-self: flex-start;
-  margin-top: 2%;
 `;
 
 const Icon = styled.div`
-  margin-right: 2%;
-  margin-left: 12%;
+  margin: 14px 10px 14px 10px;
 `;
 
 const Title = styled.div`
@@ -75,6 +81,7 @@ const Title = styled.div`
   font-size: 20px;
   font-weight: 900;
   text-align: center;
+  margin: 14px 10px 14px 0;
 `;
 
 const SubTitle = styled.div`
@@ -82,7 +89,7 @@ const SubTitle = styled.div`
   color: ${content.gray.a1};
   font-size: 20px;
   font-weight: 900;
-  margin-bottom: 2%;
+  margin: 14px 10px 7px 0;
 `;
 
 const Description = styled.div`
@@ -90,11 +97,12 @@ const Description = styled.div`
   color: ${content.gray.a3};
   font-size: 15x;
   font-weight: 400;
-  margin-bottom: 2%;
+  margin-bottom: 7px;
 `;
 const Duration = styled.div`
   display: flex;
   color: ${content.gray.a3};
   font-size: 10px;
   font-weight: 700;
+  margin-bottom: 7px;
 `;
