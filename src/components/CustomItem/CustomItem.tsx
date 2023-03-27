@@ -45,7 +45,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 10dvh;
+  height: 10vh;
   padding: 11px 11px 11px 11px;
   margin: 0 16px 0 16px;
   border-radius: 12px;

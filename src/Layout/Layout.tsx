@@ -24,14 +24,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100dvh;
+  height: 100vh;
 `;
 
 const Header = styled.header`
   display: flex;
   flex: 0.8;
   height: 100%;
-  width: 100dvw;
+  width: 100vw;
 `;
 const Main = styled.main`
   display: flex;
@@ -43,5 +43,5 @@ const Footer = styled.footer`
   flex: 2;
   background-color: ${content.gray.a4};
   height: 100%;
-  width: 100dvw;
+  width: 100vw;
 `;
