@@ -1,15 +1,24 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const SeperatorLine = () => {
-  return <Seperator />;
+interface Props {
+  transparent: boolean;
+}
+
+const SeperatorLine = ({ transparent }: Props) => {
+  return <Seperator transparent={transparent} />;
 };
 
 export default SeperatorLine;
 
-const Seperator = styled.div`
-  background-color: #eeeeee;
-  height: 1px;
-  margin-bottom: 1%;
-  margin-top: 1%;
+const Seperator = styled.div<{ transparent: boolean }>`
+  background-color: ${(props) =>
+    props.transparent ? "transparent" : "#f1f3f6"};
+  height: 0.1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
+
+SeperatorLine.defaultProps = {
+  transparent: false,
+};
