@@ -36,7 +36,6 @@ const Header = styled.header`
 const Main = styled.main`
   display: flex;
   flex: 11;
-  height: 100%;
 `;
 const Footer = styled.footer`
   display: flex;

@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 65px 16px 65px 16px;
+  margin: 65px 0 65px 0;
 `;
 
 const Description = styled.p`
