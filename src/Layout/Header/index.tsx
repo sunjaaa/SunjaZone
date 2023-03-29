@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "@/components/NavBar/NavBar";
+import NavBar from "@/components/NavBar";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { content, NAV } from "@/constants/index";
-import Icon from "../Icon/Icon";
+import Icon from "@/components/Icon";
 
 const Header = () => {
   return (

@@ -20,13 +20,7 @@ const Icon = ({ icon, size }: Props) => {
   return (
     <>
       {imageSrc && (
-        <Image
-          src={imageSrc}
-          alt={icon}
-          width={size}
-          height={size}
-          placeholder="blur"
-        />
+        <Image src={imageSrc} alt={icon} width={size} height={size} />
       )}
     </>
   );

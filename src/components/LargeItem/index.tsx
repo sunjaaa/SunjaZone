@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+import { RiArrowRightSLine } from "react-icons/ri";
 import { content } from "@/constants/index";
 
 interface Props {
@@ -9,33 +10,38 @@ interface Props {
   subtitle?: string;
   description?: string;
   duration?: string;
+  onClick?: any;
 }
 
-const CustomItem = ({
+const LargeItem = ({
   title,
   subtitle,
   description,
   duration,
   icon,
+  onClick,
 }: Props) => {
   return (
     <Container>
-      <Wrapper>
+      <Wrapper onClick={onClick}>
         <TitleBox>
           <Icon>{icon}</Icon>
           <Title>{title}</Title>
         </TitleBox>
-        <ContentBox>
+        <CenterBox>
           <SubTitle>{subtitle}</SubTitle>
           <Description>{description}</Description>
           <Duration>{duration}</Duration>
-        </ContentBox>
+        </CenterBox>
+        <RightBox>
+          <RiArrowRightSLine size={42} />
+        </RightBox>
       </Wrapper>
     </Container>
   );
 };
 
-export default CustomItem;
+export default LargeItem;
 
 const Container = styled.div`
   display: flex;
@@ -46,9 +52,9 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 10vh;
-  padding: 11px 11px 11px 11px;
-  margin: 0 16px 0 16px;
-  border-radius: 12px;
+  padding: 0.688rem 0.688rem 0.688rem 0.688rem;
+  margin: 0.5rem 0 0.25rem 0;
+  border-radius: 0.75rem;
   border: solid;
   border-color: transparent;
   background-color: ${content.gray.a4};
@@ -56,6 +62,7 @@ const Wrapper = styled.div`
     background-color: transparent;
     border: solid;
     border-color: ${content.gray.a4};
+    cursor: pointer;
   }
 `;
 
@@ -65,11 +72,19 @@ const TitleBox = styled.div`
   align-self: flex-start;
 `;
 
-const ContentBox = styled.div`
+const CenterBox = styled.div`
   display: flex;
   flex: 2;
   flex-direction: column;
   align-self: flex-start;
+`;
+
+const RightBox = styled.div`
+  display: flex;
+  flex: 0.3;
+  align-self: center;
+  justify-content: center;
+  color: ${content.gray.a3};
 `;
 
 const Icon = styled.div`
@@ -95,7 +110,7 @@ const SubTitle = styled.div`
 const Description = styled.div`
   display: flex;
   color: ${content.gray.a3};
-  font-size: 15x;
+  font-size: 15px;
   font-weight: 400;
   margin-bottom: 7px;
 `;
