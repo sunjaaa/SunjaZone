@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Icon from "../Icon/Icon";
+import Icon from "@/components/Icon";
 
 const Banner = () => {
   return (

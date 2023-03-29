@@ -5,11 +5,11 @@ interface Props {
   transparent: boolean;
 }
 
-const SeperatorLine = ({ transparent }: Props) => {
+const SeparatorLine = ({ transparent }: Props) => {
   return <Seperator transparent={transparent} />;
 };
 
-export default SeperatorLine;
+export default SeparatorLine;
 
 const Seperator = styled.div<{ transparent: boolean }>`
   background-color: ${(props) =>
@@ -19,6 +19,6 @@ const Seperator = styled.div<{ transparent: boolean }>`
   margin-top: 1rem;
 `;
 
-SeperatorLine.defaultProps = {
+SeparatorLine.defaultProps = {
   transparent: false,
 };

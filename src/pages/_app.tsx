@@ -1,8 +1,9 @@
 import type { AppProps } from "next/app";
 import { css, Global } from "@emotion/react";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import Layout from "@/Layout/Layout";
+
+import Layout from "@/Layout";
+import Header from "@/Layout/Header";
+import Footer from "@/Layout/Footer";
 import { content } from "@/constants";
 
 const selectionStyle = css`

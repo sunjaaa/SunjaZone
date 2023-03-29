@@ -1,15 +1,19 @@
 import React from "react";
-import Badge from "@/components/Badge/Badge";
-import SeperatorLine from "@/components/SeperatorLine/SeperatorLine";
+import Badge from "@/components/Badge";
+import SeparatorLine from "@/components/SeparatorLine";
 import styled from "@emotion/styled";
-import BlockText from "@/components/BlockText/BlockText";
-import CustomText from "@/components/CustomText/CustomText";
+import BlockText from "@/components/BlockText";
+import CustomText from "@/components/CustomText";
 import { BADGE } from "@/constants/badge";
 import Lottie from "react-lottie-player";
 import webNApp from "@/assets/lotties/webNApp.json";
 import { INFO } from "@/constants/constant";
 
 const About = () => {
+  const openGithubPage = () => {
+    window.open(INFO.GITHUB);
+  };
+
   return (
     <Container>
       <Lottie loop animationData={webNApp} play style={lottieStyle} />
@@ -22,7 +26,7 @@ const About = () => {
               size={1.1}
             />
           </ContentBox>
-          <SeperatorLine />
+          <SeparatorLine />
           <BlockText title="❤️‍🔥 Interest" thema={true} size={1.5} />
           <ContentBox>
             <Badge src={BADGE.JAVASCRIPT} />
@@ -33,12 +37,17 @@ const About = () => {
             <Badge src={BADGE.NESTJS} />
             <Badge src={BADGE.EXPRESS} />
           </ContentBox>
-          <SeperatorLine />
+          <SeparatorLine />
           <BlockText title="🔗 Link" thema={true} size={1.5} />
           <ContentBox>
-            <CustomText label={`GITHUB : ${INFO.GITHUB}`} size={1.1} />
+            <CustomText
+              label={`GITHUB : ${INFO.GITHUB}`}
+              size={1.1}
+              onClick={openGithubPage}
+              style={{ cursor: "pointer" }}
+            />
           </ContentBox>
-          <SeperatorLine />
+          <SeparatorLine />
           <BlockText
             title="🙇🏻‍♂️ 간단히 하실 말씀이 있다면, 아래 이메일로 연락해 주세요!"
             thema={true}
