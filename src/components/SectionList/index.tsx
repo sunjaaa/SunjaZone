@@ -1,67 +1,56 @@
 import React from "react";
 
-interface SectionListData {
+export interface SectionListData<T> {
   title: string;
-  data: object[];
+  data: T[];
 }
 
-interface SectionListProps {
-  sections: SectionListData[];
-  ListEmptyComponent: React.ReactNode;
-  ListHeaderComponent?: React.ReactNode;
-  ListFooterComponent?: React.ReactNode;
-  ItemSeparatorComponent?: React.ReactNode;
-  SecionFooterComponent?: React.ReactNode;
-  keyExtractor: (item: object) => string;
-  renderItem: ({ item, index }: { item: object; index: number }) => JSX.Element;
+export interface SectionListProps<T> {
+  sections: SectionListData<T>[];
+  keyExtractor: (item: T) => string;
+  renderItem: ({ item, index }: { item: T; index: number }) => JSX.Element;
   renderSectionHeader: ({
     section,
   }: {
-    section: SectionListData;
+    section: SectionListData<T>;
   }) => JSX.Element;
+  ListEmptyComponent?: React.ReactNode;
+  ListHeaderComponent?: React.ReactNode;
+  ListFooterComponent?: React.ReactNode;
+  ItemSeparatorComponent?: React.ReactNode;
+  SectionFooterComponent?: React.ReactNode;
 }
 
-const SectionList = ({
+const SectionList = <T,>({
   sections,
-  ListEmptyComponent,
-  ListHeaderComponent,
-  ListFooterComponent,
-  ItemSeparatorComponent,
-  SecionFooterComponent,
   keyExtractor,
   renderItem,
   renderSectionHeader,
-}: SectionListProps) => {
-  if (sections) {
-    return (
-      <div>
-        {ListHeaderComponent}
-        {sections.map((section) => (
-          <>
-            <div key={section.title}>
-              {renderSectionHeader({ section })}
-              {section.data.map((item, index) => (
-                <>
-                  <div key={keyExtractor(item)}>
-                    {renderItem({ item, index })}
-                  </div>
-                  {ItemSeparatorComponent}
-                </>
-              ))}
-              {SecionFooterComponent}
+  ListEmptyComponent = <div />,
+  ListHeaderComponent,
+  ListFooterComponent,
+  ItemSeparatorComponent,
+  SectionFooterComponent,
+}: SectionListProps<T>) => {
+  return (
+    <div>
+      {ListHeaderComponent}
+      {sections.map((section) => (
+        <div key={section.title}>
+          {renderSectionHeader({ section })}
+          {section.data.map((item, index) => (
+            <div key={keyExtractor(item)}>
+              {renderItem({ item, index })}
+              {ItemSeparatorComponent}
             </div>
-          </>
-        ))}
-        {ListFooterComponent}
-      </div>
-    );
-  } else {
-    return <div>{ListEmptyComponent}</div>;
-  }
+          ))}
+          {SectionFooterComponent}
+        </div>
+      ))}
+      {ListFooterComponent}
+      {sections.length === 0 && ListEmptyComponent}
+    </div>
+  );
 };
 
 export default SectionList;
-
-SectionList.defaultProps = {
-  ListEmptyComponent: <div />,
-};
