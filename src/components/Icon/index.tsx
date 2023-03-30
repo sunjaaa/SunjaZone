@@ -24,8 +24,8 @@ const Icon = ({ icon, size }: Props) => {
           <Image
             width={size}
             height={size}
-            src="/_next/static/media/devJeans.3aa990f2.png"
-            alt="데브진스를 사용한 이미지 배너입니다!"
+            src={imageSrc}
+            alt="데브진스를 사용한 배너 이미지입니다!"
             priority={true}
           />
         )}
