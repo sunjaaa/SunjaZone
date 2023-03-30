@@ -4,10 +4,11 @@ import SeparatorLine from "@/components/SeparatorLine";
 import styled from "@emotion/styled";
 import BlockText from "@/components/BlockText";
 import CustomText from "@/components/CustomText";
-import { BADGE } from "@/constants/badge";
+
 import Lottie from "react-lottie-player";
 import webNApp from "@/assets/lotties/webNApp.json";
 import { INFO } from "@/constants/constant";
+import { badge } from "@/constants";
 
 const About = () => {
   const openGithubPage = () => {
@@ -29,13 +30,13 @@ const About = () => {
           <SeparatorLine />
           <BlockText title="❤️‍🔥 Interest" thema={true} size={1.5} />
           <ContentBox>
-            <Badge src={BADGE.JAVASCRIPT} />
-            <Badge src={BADGE.TYPESCRIPT} />
-            <Badge src={BADGE.REACT} />
-            <Badge src={BADGE.REACT_NATIVE} />
-            <Badge src={BADGE.NEXTJS} />
-            <Badge src={BADGE.NESTJS} />
-            <Badge src={BADGE.EXPRESS} />
+            <Badge src={badge.JAVASCRIPT} />
+            <Badge src={badge.TYPESCRIPT} />
+            <Badge src={badge.REACT} />
+            <Badge src={badge.REACT_NATIVE} />
+            <Badge src={badge.NEXTJS} />
+            <Badge src={badge.NESTJS} />
+            <Badge src={badge.EXPRESS} />
           </ContentBox>
           <SeparatorLine />
           <BlockText title="🔗 Link" thema={true} size={1.5} />
