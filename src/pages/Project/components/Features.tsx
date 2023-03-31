@@ -8,5 +8,5 @@ const Features = ({ features }: any) => {
 export default Features;
 
 const Description = styled.p`
-  line-height: 1.7rem;
+  line-height: 0.5rem;
 `;
