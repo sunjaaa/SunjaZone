@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 
 import Icon from "@/components/Icon";
@@ -14,15 +14,9 @@ interface Props {
 const ExperiencesList = ({ experience }: Props) => {
   const router = useRouter();
 
-  useEffect(() => {
-    return () => {
-      helper.handleClickScroll(experience.id);
-    };
-  }, []);
-
   const moveToProject = (id: string) => () => {
     router.push(NAV.HREF.PROJECT);
-    setTimeout(() => helper.handleClickScroll(id), 200);
+    setTimeout(() => helper.handleClickScroll(id), 400);
   };
 
   return (

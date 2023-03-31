@@ -1,8 +1,7 @@
 import BlockText from "@/components/BlockText";
 import React from "react";
-import { HomeDatas } from "../types";
 
-const ExperienceType = ({ title }: HomeDatas) => {
+const ExperienceType = ({ title }: { title: string }) => {
   if (title === "Work Experiences") {
     return <BlockText title={`🏢 ${title}`} thema={true} size={1.5} />;
   } else {
