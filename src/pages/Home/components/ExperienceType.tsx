@@ -1,7 +1,8 @@
 import BlockText from "@/components/BlockText";
 import React from "react";
+import { HomeDatas } from "../types";
 
-const SectionHeader = ({ title }: any) => {
+const ExperienceType = ({ title }: HomeDatas) => {
   if (title === "Work Experiences") {
     return <BlockText title={`🏢 ${title}`} thema={true} size={1.5} />;
   } else {
@@ -9,4 +10,4 @@ const SectionHeader = ({ title }: any) => {
   }
 };
 
-export default SectionHeader;
+export default ExperienceType;

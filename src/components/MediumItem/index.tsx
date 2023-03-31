@@ -8,7 +8,7 @@ interface Props {
   icon?: React.ReactNode;
   title?: string;
   description?: string;
-  onClick?: React.MouseEventHandler;
+  onClick?: React.MouseEventHandler<Element> | React.MouseEventHandler;
 }
 
 const MediumItem = ({ title, description, icon, onClick }: Props) => {

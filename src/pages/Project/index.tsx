@@ -1,28 +1,56 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { SiGithub } from "react-icons/si";
 
-import MediumItem from "@/components/MediumItem";
-import CustomText from "@/components/CustomText";
-import BlockText from "@/components/BlockText";
-import SeparatorLine from "@/components/SeparatorLine";
-import Badge from "@/components/Badge";
-import { GITHUB } from "@/constants/constant";
-import { BADGE } from "@/constants/badge";
-import SectionList from "@/components/SectionList";
+import SectionList, { SectionListData } from "@/components/SectionList";
+
 import ReadMe from "./components/ReadMe";
+import ProjectTitle from "./components/ProjectTitle";
+import { ProjectDataItems, ProjectDatas } from "./types";
 
-const DATA = [
+const DATA: SectionListData<ProjectDataItems>[] = [
   {
     title: "Whatssub-Lite",
     data: [
       {
         id: "section-1",
+
         icon: "cloudfare",
-        title: "Karos",
-        subtitle: "JIIN",
-        description: "React를 활용한 .... ........... 개발",
-        duration: "Nov 2022 ~ Jan 2023",
+        url: "imgurl",
+        startDate: "2022.11.11",
+        endDate: "2023.12.12",
+        techStack: [
+          {
+            badge: "javascript",
+          },
+          {
+            badge: "reactnative",
+          },
+        ],
+        title: "Whatssub-Lite",
+        contributors: "sunjaaa",
+        description:
+          "한세사이버보안고등학교에서 매년 진행하는 교내 해커톤으로 인해 학생회 기능부에서 랜딩 페이지 및 관리 서비스를 개발 및 기획하였습니다. ",
+        features: [
+          {
+            feat: "해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현",
+          },
+          {
+            feat: "학교 내의 네트워크와 상대 컴퓨터의 네트워크 교차 검증을 통한 교내망 인증 기능 추가",
+          },
+          { feat: "해커톤 팀원 구직 및 구성 기능 구현" },
+          {
+            feat: "제출 deadline에 맞춰 제출 제한 및 약 동시 50명 이상의 제출 트래픽 처리",
+          },
+          {
+            feat: "passport와 guard를 통한 jwt auth 기능 구현",
+          },
+          {
+            feat: "winston을 이용하여 product 로깅 설정 및 모니터링 기능 구현",
+          },
+          {
+            feat: "교내의 물리 서버를 통하여 실제 프로덕트 배포",
+          },
+        ],
       },
     ],
   },
@@ -31,12 +59,42 @@ const DATA = [
     data: [
       {
         id: "section-2",
-        icon: "zoom",
-        title: "Target-Search",
-        subtitle: "Search your targets!",
-        description:
-          "스크랩핑로직 구현과 express로 만든 API로 react-typescript를 프론트로 사용하여 검색사이트 구현",
-        duration: "Mar 2023",
+        icon: "cloudfare",
+        url: "imgurl",
+        startDate: "2022.03.30",
+        endDate: "2023.10.10",
+        techStack: [
+          {
+            badge: "typescript",
+          },
+          {
+            badge: "react",
+          },
+        ],
+        title: "읍읍-읍읍읍",
+        contributors: "sunjaaa with 0000",
+        description: "React를 활용한 .... ........... 개발",
+        features: [
+          {
+            feat: "해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현",
+          },
+          {
+            feat: "학교 내의 네트워크와 상대 컴퓨터의 네트워크 교차 검증을 통한 교내망 인증 기능 추가",
+          },
+          { feat: "해커톤 팀원 구직 및 구성 기능 구현" },
+          {
+            feat: "제출 deadline에 맞춰 제출 제한 및 약 동시 50명 이상의 제출 트래픽 처리",
+          },
+          {
+            feat: "passport와 guard를 통한 jwt auth 기능 구현",
+          },
+          {
+            feat: "winston을 이용하여 product 로깅 설정 및 모니터링 기능 구현",
+          },
+          {
+            feat: "교내의 물리 서버를 통하여 실제 프로덕트 배포",
+          },
+        ],
       },
     ],
   },
@@ -45,12 +103,52 @@ const DATA = [
     data: [
       {
         id: "section-3",
-        icon: "zoom",
-        title: "Target-Search",
-        subtitle: "Search your targets!",
+        icon: "cloudfare",
+        url: "imgurl",
+        startDate: "2022.00.00",
+        endDate: "2023.00.00",
+        techStack: [
+          {
+            badge: "nextjs",
+          },
+          {
+            badge: "typescript",
+          },
+          {
+            badge: "nestjs",
+          },
+          {
+            badge: "mariadb",
+          },
+          {
+            badge: "docker",
+          },
+        ],
+        title: "Sunja-Zone",
+        contributors: "sunjaaa",
         description:
-          "스크랩핑로직 구현과 express로 만든 API로 react-typescript를 프론트로 사용하여 검색사이트 구현",
-        duration: "Mar 2023",
+          "한세사이버보안고등학교에서 매년 진행하는 교내 해커톤으로 인해 학생회 기능부에서 랜딩 페이지 및 관리 서비스를 개발 및 기획하였습니다. ",
+        features: [
+          {
+            feat: "해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현",
+          },
+          {
+            feat: "학교 내의 네트워크와 상대 컴퓨터의 네트워크 교차 검증을 통한 교내망 인증 기능 추가",
+          },
+          { feat: "해커톤 팀원 구직 및 구성 기능 구현" },
+          {
+            feat: "제출 deadline에 맞춰 제출 제한 및 약 동시 50명 이상의 제출 트래픽 처리",
+          },
+          {
+            feat: "passport와 guard를 통한 jwt auth 기능 구현",
+          },
+          {
+            feat: "winston을 이용하여 product 로깅 설정 및 모니터링 기능 구현",
+          },
+          {
+            feat: "교내의 물리 서버를 통하여 실제 프로덕트 배포",
+          },
+        ],
       },
     ],
   },
@@ -59,126 +157,74 @@ const DATA = [
     data: [
       {
         id: "section-4",
-        icon: "zoom",
+        icon: "cloudfare",
+        url: "imgurl",
+        startDate: "2022.8.16",
+        endDate: "2023.00.00",
+        techStack: [
+          {
+            badge: "react",
+          },
+          {
+            badge: "typescript",
+          },
+        ],
         title: "Target-Search",
-        subtitle: "Search your targets!",
-        description:
-          "스크랩핑로직 구현과 express로 만든 API로 react-typescript를 프론트로 사용하여 검색사이트 구현",
-        duration: "Mar 2023",
+        contributors: "sunjaaa",
+        description: "React Typescript를 활용하여  .... ........... 개발",
+        features: [
+          {
+            feat: "해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현",
+          },
+          {
+            feat: "학교 내의 네트워크와 상대 컴퓨터의 네트워크 교차 검증을 통한 교내망 인증 기능 추가",
+          },
+          { feat: "해커톤 팀원 구직 및 구성 기능 구현" },
+          {
+            feat: "제출 deadline에 맞춰 제출 제한 및 약 동시 50명 이상의 제출 트래픽 처리",
+          },
+          {
+            feat: "passport와 guard를 통한 jwt auth 기능 구현",
+          },
+          {
+            feat: "winston을 이용하여 product 로깅 설정 및 모니터링 기능 구현",
+          },
+          {
+            feat: "교내의 물리 서버를 통하여 실제 프로덕트 배포",
+          },
+        ],
       },
     ],
   },
 ];
 
 const Project = () => {
-  const renderSectionHeaderHandler = ({ section: { title, data } }: any) => {
-    const id = data;
-    console.log("iddd", id);
-
-    return (
-      <div id={id}>
-        <BlockText title={title} thema={true} size={1.5} />
-      </div>
-    );
+  const keyExtractor = (item: ProjectDataItems) => {
+    return `project_${item.id}`;
   };
 
-  const keyExtractor = (item: any) => {
-    return item.id;
-  };
-
-  const renderItemHandler = ({ item, index }: any) => {
+  const renderItemHandler = ({ item }: { item: ProjectDataItems }) => {
     return <ReadMe project={item} />;
+  };
+
+  const renderSectionHeaderHandler = ({
+    section: { title, data },
+  }: {
+    section: ProjectDatas;
+  }) => {
+    return <ProjectTitle title={title} data={data} />;
   };
 
   return (
     <Container>
       <Wrapper>
         <Box>
-          <SeparatorLine transparent={true} />
           <SectionList
             sections={DATA}
             keyExtractor={keyExtractor}
             renderItem={renderItemHandler}
             renderSectionHeader={renderSectionHeaderHandler}
           />
-          {/* <BlockText title="Sunja-Zone" thema={true} size={1.5} />
-          <ContentBox id="section-1">
-            <h1>이미지</h1>
-          </ContentBox>
-          <BlockText title="📅 기간" thema={true} size={1.5} />
-          <ContentBox>
-            <CustomText label="2022.00.00 ~ 2022.00.00" size={1.1} />
-          </ContentBox>
-          <SeparatorLine />
-          <BlockText title="👩‍💻 사용 기술 " thema={true} size={1.5} />
-          <ContentBox>
-            <Badge src={BADGE.NEXTJS} />
-            <Badge src={BADGE.TYPESCRIPT} />
-            <Badge src={BADGE.NESTJS} />
-            <Badge src={BADGE.MARIADB} />
-            <Badge src={BADGE.DOCKER} />
-          </ContentBox>
-          <SeparatorLine />
-          <MediumItem
-            icon={<SiGithub size={30} />}
-            title="Sunja-Zone"
-            description="sunjaaa"
-            onClick={openGithubProject}
-          />
-          <TextBox>
-            <CustomText
-              label="한세사이버보안고등학교에서 매년 진행하는 교내 해커톤으로 인해 학생회 기능부에서 랜딩 페이지 및 관리 서비스를 개발 및 기획하였습니다. "
-              size={1}
-            />
-            <Description>
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현
-              <br />
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-              <br />
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-              <br />
-            </Description>
-          </TextBox>
-          <SeparatorLine transparent={true} /> */}
-          {/* <BlockText title="Sunja-Zone" thema={true} size={1.5} />
-          <ContentBox id="section-2">
-            <h1>이미지</h1>
-          </ContentBox>
-          <BlockText title="📅 기간" thema={true} size={1.5} />
-          <ContentBox>
-            <CustomText label="2022.00.00 ~ 2022.00.00" size={1.1} />
-          </ContentBox>
-          <SeparatorLine />
-          <BlockText title="👩‍💻 사용 기술 " thema={true} size={1.5} />
-          <ContentBox>
-            <Badge src={BADGE.NEXTJS} />
-            <Badge src={BADGE.TYPESCRIPT} />
-            <Badge src={BADGE.NESTJS} />
-            <Badge src={BADGE.MARIADB} />
-            <Badge src={BADGE.DOCKER} />
-          </ContentBox>
-          <SeparatorLine />
-          <MediumItem
-            icon={<SiGithub size={30} />}
-            title="Sunja-Zone"
-            description="sunjaaa"
-            onClick={openGithubProject}
-          />
-          <TextBox>
-            <CustomText
-              label="한세사이버보안고등학교에서 매년 진행하는 교내 해커톤으로 인해 학생회 기능부에서 랜딩 페이지 및 관리 서비스를 개발 및 기획하였습니다. "
-              size={1}
-            />
-            <Description>
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현
-              <br />
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-              <br />
-              • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-              <br />
-            </Description>
-          </TextBox>
-          <SeparatorLine transparent={true} /> */}
         </Box>
       </Wrapper>
     </Container>
@@ -201,19 +247,4 @@ const Wrapper = styled.div`
 `;
 const Box = styled.div`
   margin: 0 1rem 0 1rem;
-`;
-const ContentBox = styled.picture`
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-`;
-const TextBox = styled.picture`
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  flex-direction: column;
-`;
-
-const Description = styled.p`
-  line-height: 1.7rem;
 `;
