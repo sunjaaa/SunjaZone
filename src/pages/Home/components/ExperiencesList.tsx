@@ -1,26 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import Icon from "@/components/Icon";
 import LargeItem from "@/components/LargeItem";
 import { NAV } from "@/constants";
+import { HomeDataItems } from "../types";
+import { helper } from "@/utils";
 
-const ExperiencesList = ({ experience }: any) => {
+interface Props {
+  experience: HomeDataItems;
+}
+
+const ExperiencesList = ({ experience }: Props) => {
   const router = useRouter();
 
-  const moveToProject = (id: any) => () => {
+  useEffect(() => {
+    return () => {
+      helper.handleClickScroll(experience.id);
+    };
+  }, []);
+
+  const moveToProject = (id: string) => () => {
     router.push(NAV.HREF.PROJECT);
-    console.log(id);
-
-    setTimeout(() => handleClickScroll(id), 200);
-  };
-
-  //  id 다를경우 대응 추가 예정
-  const handleClickScroll = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    setTimeout(() => helper.handleClickScroll(id), 200);
   };
 
   return (

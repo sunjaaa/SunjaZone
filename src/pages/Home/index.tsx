@@ -2,13 +2,15 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import SeparatorLine from "@/components/SeparatorLine";
+import SectionList, { SectionListData } from "@/components/SectionList";
 
 import Banner from "./components/Banner";
-import SectionList from "@/components/SectionList";
 import ExperiencesList from "./components/ExperiencesList";
-import SectionHeader from "./components/SectionHeader";
+import ExperienceType from "./components/ExperienceType";
 
-const DATA = [
+import { HomeDataItems, HomeDatas } from "./types";
+
+const DATA: SectionListData<HomeDataItems>[] = [
   {
     title: "Work Experiences",
     data: [
@@ -55,16 +57,20 @@ const DATA = [
 ];
 
 const Main = () => {
-  const renderSectionHeaderHandler = ({ section: { title, data } }: any) => {
-    return <SectionHeader title={title} />;
+  const keyExtractor = (item: HomeDataItems) => {
+    return `experiences_${item.id}`;
   };
 
-  const keyExtractor = (item: any) => {
-    return item.id;
-  };
-
-  const renderItemHandler = ({ item, index }: any) => {
+  const renderItemHandler = ({ item }: { item: HomeDataItems }) => {
     return <ExperiencesList experience={item} />;
+  };
+
+  const renderSectionHeaderHandler = ({
+    section: { title, data },
+  }: {
+    section: HomeDatas;
+  }) => {
+    return <ExperienceType title={title} />;
   };
 
   return (
@@ -77,7 +83,7 @@ const Main = () => {
             keyExtractor={keyExtractor}
             renderItem={renderItemHandler}
             renderSectionHeader={renderSectionHeaderHandler}
-            SecionFooterComponent={<SeparatorLine transparent={true} />}
+            SectionFooterComponent={<SeparatorLine transparent={true} />}
           />
         </Box>
       </Wrapper>

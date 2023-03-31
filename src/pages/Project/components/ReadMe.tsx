@@ -1,18 +1,59 @@
-import Badge from "@/components/Badge";
+import React from "react";
+import styled from "@emotion/styled";
+import FlatList from "@/components/FlatList";
+import Features from "./Features";
+import { github } from "@/constants";
+
 import BlockText from "@/components/BlockText";
 import CustomText from "@/components/CustomText";
 import MediumItem from "@/components/MediumItem";
 import SeparatorLine from "@/components/SeparatorLine";
 import { SiGithub } from "react-icons/si";
-import { BADGE } from "@/constants/badge";
-import { GITHUB } from "@/constants/constant";
-import styled from "@emotion/styled";
-import React from "react";
+import Badges from "./Badges";
+import {
+  ProjectDataItems,
+  ProjectTechStackItems,
+  ProjectFeaturesItems,
+} from "../types";
 
-const ReadMe = ({ project }: any) => {
-  const openGithubProject = () => {
-    window.open(GITHUB.CAROUSEL);
+export interface Props {
+  project: ProjectDataItems;
+}
+
+const ReadMe = ({ project }: Props) => {
+  const openGithubRepo = (url: string) => () => {
+    window.open(url);
   };
+
+  const renderBadgesHandler = ({ item }: { item: ProjectTechStackItems }) => {
+    return <Badges techStacks={item} />;
+  };
+
+  const renderDescriptionsHandler = ({
+    item,
+  }: {
+    item: ProjectFeaturesItems;
+  }) => {
+    return <Features features={item} />;
+  };
+
+  const title = project.title;
+  const contributors = project.contributors;
+
+  const startDate = project.startDate;
+  const endDate = project.endDate;
+
+  const techStack = project.techStack;
+
+  const summary = project.description;
+
+  const features = project.features;
+
+  const repos =
+    {
+      "Sunja-Zone": github.SUNJAZONE,
+      "Target-Search": github.TARGETSEARCH,
+    }[title] || github.github_base;
 
   return (
     <>
@@ -21,38 +62,32 @@ const ReadMe = ({ project }: any) => {
       </ContentBox>
       <BlockText title="📅 기간" thema={true} size={1.5} />
       <ContentBox>
-        <CustomText label="2022.00.00 ~ 2022.00.00" size={1.1} />
+        <CustomText label={`${startDate} ~ ${endDate}`} size={1.1} />
       </ContentBox>
       <SeparatorLine />
-      <BlockText title="👩‍💻 사용 기술 " thema={true} size={1.5} />
+      <BlockText title="👩‍💻 사용 기술" thema={true} size={1.5} />
       <ContentBox>
-        <Badge src={BADGE.NEXTJS} />
-        <Badge src={BADGE.TYPESCRIPT} />
-        <Badge src={BADGE.NESTJS} />
-        <Badge src={BADGE.MARIADB} />
-        <Badge src={BADGE.DOCKER} />
+        <FlatList
+          data={techStack}
+          keyExtractor={(item: ProjectTechStackItems) => item.badge}
+          renderItem={renderBadgesHandler}
+          horizontal={true}
+          style={badgeListItemStyle}
+        />
       </ContentBox>
       <SeparatorLine />
       <MediumItem
         icon={<SiGithub size={30} />}
-        title="Sunja-Zone"
-        description="sunjaaa"
-        onClick={openGithubProject}
+        title={title}
+        description={contributors}
+        onClick={openGithubRepo(repos)}
       />
-      <TextBox>
-        <CustomText
-          label="한세사이버보안고등학교에서 매년 진행하는 교내 해커톤으로 인해 학생회 기능부에서 랜딩 페이지 및 관리 서비스를 개발 및 기획하였습니다. "
-          size={1}
-        />
-        <Description>
-          • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템 구현
-          <br />
-          • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-          <br />
-          • 해커톤 참가자들이 작업한 파일을 제출, 공유, 관리 시스템
-          <br />
-        </Description>
-      </TextBox>
+      <CustomText label={summary} size={1} style={descriptionStyle} />
+      <FlatList
+        data={features}
+        keyExtractor={(item: ProjectFeaturesItems) => item.feat}
+        renderItem={renderDescriptionsHandler}
+      />
     </>
   );
 };
@@ -62,15 +97,13 @@ const ContentBox = styled.picture`
   align-items: center;
   margin-top: 1rem;
 `;
-const TextBox = styled.picture`
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  flex-direction: column;
-`;
 
-const Description = styled.p`
-  line-height: 1.7rem;
-`;
+const descriptionStyle = {
+  marginTop: "1rem",
+};
+
+const badgeListItemStyle = {
+  marginRight: "0.2rem",
+};
 
 export default ReadMe;
