@@ -4,6 +4,8 @@ export const HREF = {
   BLOG: "/Blog",
   ISSUE: "/Issue",
   ABOUT: "/About",
+  ADMIN: "/Admin",
+  POST: "/Post",
 };
 
 export const PAGE = {
