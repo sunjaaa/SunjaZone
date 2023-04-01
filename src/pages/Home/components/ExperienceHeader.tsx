@@ -1,7 +1,7 @@
 import BlockText from "@/components/BlockText";
 import React from "react";
 
-const ExperienceType = ({ title }: { title: string }) => {
+const ExperienceHeader = ({ title }: { title: string }) => {
   if (title === "Work Experiences") {
     return <BlockText title={`🏢 ${title}`} thema={true} size={1.5} />;
   } else {
@@ -9,4 +9,4 @@ const ExperienceType = ({ title }: { title: string }) => {
   }
 };
 
-export default ExperienceType;
+export default ExperienceHeader;
