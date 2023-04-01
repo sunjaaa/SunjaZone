@@ -6,11 +6,12 @@ interface Props {
   title: string;
   thema: boolean;
   size: number;
+  style?: React.CSSProperties;
 }
 
-const BlockText = ({ title, thema, size }: Props) => {
+const BlockText = ({ title, thema, size, style }: Props) => {
   return (
-    <Container>
+    <Container style={style}>
       <Title thema={thema} size={size}>
         {title}
       </Title>
