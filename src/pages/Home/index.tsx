@@ -6,7 +6,7 @@ import SectionList, { SectionListData } from "@/components/SectionList";
 
 import Banner from "./components/Banner";
 import ExperiencesList from "./components/ExperiencesList";
-import ExperienceType from "./components/ExperienceType";
+import ExperienceHeader from "./components/ExperienceHeader";
 
 import { HomeDataItems, HomeDatas } from "./types";
 
@@ -70,7 +70,7 @@ const Main = () => {
   }: {
     section: HomeDatas;
   }) => {
-    return <ExperienceType title={title} />;
+    return <ExperienceHeader title={title} />;
   };
 
   return (
