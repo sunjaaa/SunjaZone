@@ -65,10 +65,6 @@ const AdminPage = () => {
 
 export default AdminPage;
 
-const TitleStyle = {
-  margin: `0.4rem 2.5rem 0.4rem 2.5rem`,
-};
-
 const Container = styled.div`
   display: flex;
   flex: 1;
