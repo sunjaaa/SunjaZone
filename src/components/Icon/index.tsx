@@ -25,8 +25,8 @@ const Icon = ({ icon, size }: Props) => {
             width={size}
             height={size}
             src={imageSrc}
-            alt="데브진스를 사용한 배너 이미지입니다!"
-            priority={true}
+            alt={`${icon} 데브진스 이미지 입니다.`}
+            priority
           />
         )}
       </>
@@ -35,7 +35,13 @@ const Icon = ({ icon, size }: Props) => {
     return (
       <>
         {imageSrc && (
-          <Image src={imageSrc} alt={icon} width={size} height={size} />
+          <Image
+            src={imageSrc}
+            alt={`${icon} 이미지 입니다.`}
+            width={size}
+            height={size}
+            priority
+          />
         )}
       </>
     );
