@@ -8,16 +8,26 @@ import { content } from "@/constants";
 interface NavLinkProps {
   href: string;
   children: string;
+  as?: any;
+  isTrue?: boolean;
 }
 
-const NavLink = ({ href, children }: NavLinkProps) => {
+const NavLink = ({ href, children, as, isTrue }: NavLinkProps) => {
   const router = useRouter();
   const isActive = router.pathname === href;
 
-  if (isActive) {
-    return <FocusedNavLink href={href}>{children}</FocusedNavLink>;
+  if (isActive || isTrue) {
+    return (
+      <FocusedNavLink as={as} href={href}>
+        {children}
+      </FocusedNavLink>
+    );
   } else {
-    return <UnFocusedNavLink href={href}>{children}</UnFocusedNavLink>;
+    return (
+      <UnFocusedNavLink as={as} href={href}>
+        {children}
+      </UnFocusedNavLink>
+    );
   }
 };
 
