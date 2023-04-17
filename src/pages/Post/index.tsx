@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
+
+// import { postBlog, postIssue } from "../api/post";
 import { content, NAV } from "@/constants";
+import useModal from "@/hooks/useModal";
 
-import { useState } from "react";
-import { postBlog } from "../api/post";
-
-interface Props {
-  onSubmit: (data: FormData) => void;
-}
+import fetchUserId from "@/pages/api/post";
 
 interface FormData {
   path: string;
@@ -20,8 +19,16 @@ interface FormData {
   content: string;
 }
 
-const Post = (props: Props) => {
+const Post = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const modal = useModal();
+
+  console.log("session", session);
+
+  const [userId, setUserId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const [formData, setFormData] = useState<FormData>({
     path: "",
     title: "",
@@ -32,31 +39,108 @@ const Post = (props: Props) => {
     content: "",
   });
 
-  const router = useRouter();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isAdmin) {
+      } else {
+        authAdminModal();
+      }
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [session]);
 
-  const moveToPostPage = () => {
+  const authId = session?.user?.email;
+
+  const isAdmin =
+    status === "authenticated" &&
+    authId === process.env.NEXT_PUBLIC_ADMIN_SECRET;
+
+  console.log("isAdmin", isAdmin);
+
+  const moveToRootPage = () => {
+    router.push(NAV.HREF.ROOT);
+  };
+
+  const moveToBlogPage = () => {
     router.push(NAV.HREF.BLOG);
+  };
+
+  const moveToIssuePage = () => {
+    router.push(NAV.HREF.ISSUE);
+  };
+
+  const authAdminModal = () => {
+    modal.open({
+      title: "포스팅을 위한 로그인을 진행하시겠습니까?",
+      description:
+        "사이트에 해를 가하는 행위는 법에 근거하여 처벌 받으실 수 있음을 경고 드립니다.",
+      mainAction: {
+        label: "확인하기",
+        onPress: (close) => {
+          isAdmin ? close() : signIn();
+        },
+      },
+      subAction: {
+        label: "돌아가기",
+        onPress: (close) => {
+          close();
+          moveToRootPage();
+        },
+      },
+    });
+  };
+
+  const blogOrIssueModal = () => {
+    modal.open({
+      title: "어느 페이지에 게시물을 올리겠습니까?",
+      description:
+        "동해물과 백두산이 마르고 닳도록 대한 사람 대한으로 길이 보전하세",
+      mainAction: {
+        label: "Blog 올리기",
+        onPress: (close) => {
+          close();
+          postOnBlog();
+        },
+      },
+      subAction: {
+        label: "Issue 올리기",
+        onPress: (close) => {
+          close();
+          postOnIssue();
+        },
+      },
+    });
+  };
+
+  const postOnBlog = async () => {
+    // const isPosted = await postBlog(formData);
+    // console.log("formData", formData);
+    // setIsLoading(false);
+    // if (isPosted) {
+    //   moveToBlogPage();
+    // } else {
+    //   alert("블로그 포스팅에 실패하였습니다.");
+    // }
+  };
+
+  const postOnIssue = async () => {
+    // const isPosted = await postIssue(formData);
+    // console.log("formData", formData);
+    // setIsLoading(false);
+    // if (isPosted) {
+    //   moveToIssuePage();
+    // } else {
+    //   alert("이슈 포스팅에 실패하였습니다.");
+    // }
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    //모달창 열기
-
-    const isPosted = await postBlog(formData);
-    console.log(formData);
-    setIsLoading(false);
-    if (isPosted) {
-      moveToPostPage();
-    } else {
-      alert("포스팅에 실패하였습니다.");
-    }
-    // props.onSubmit(formData);
+    blogOrIssueModal();
   };
 
-  // 모달창에서 "어느곳에 게시하시겠습니까?" 버튼으로는 블로그 , 이슈 ,취소
-
-  //
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -131,7 +215,6 @@ const Post = (props: Props) => {
           onChange={handleInputChange}
         />
         <PostButton type="submit">게시하기</PostButton>
-        {/* </form> */}
       </Wrapper>
     </Container>
   );
@@ -156,7 +239,6 @@ const Wrapper = styled.form`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  /* background-color: beige; */
   width: 50rem;
   height: 100%;
   border-radius: 0.55rem;
