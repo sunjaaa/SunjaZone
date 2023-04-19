@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 
 import SectionList from "@/components/SectionList";
-
 import ReadMe from "./components/ReadMe";
 import ProjectTitle from "./components/ProjectTitle";
 import { ProjectDataItems, ProjectDatas } from "@/types/project";

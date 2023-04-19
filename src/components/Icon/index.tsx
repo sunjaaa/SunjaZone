@@ -6,7 +6,7 @@ interface Props {
   size: number;
 }
 
-const Icon = ({ icon, size }: Props) => {
+const Icon = ({ icon, size = 100 }: Props) => {
   const [imageSrc, setImageSrc] = useState<string>("");
 
   useEffect(() => {
