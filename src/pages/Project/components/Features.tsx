@@ -8,5 +8,6 @@ const Features = ({ features }: any) => {
 export default Features;
 
 const Description = styled.p`
+  margin-top: 1rem;
   line-height: 0.5rem;
 `;
