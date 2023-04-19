@@ -21,9 +21,7 @@ const ExperiencesList = ({ experience }: Props) => {
 
   return (
     <LargeItem
-      icon={
-        <Icon icon={(experience.icon = "sunjazone")} size={20} /> ?? <div />
-      }
+      icon={<Icon icon={experience.icon ?? "sunjazone"} size={20} /> ?? <div />}
       title={experience.title}
       subtitle={experience.subtitle}
       description={experience.description}
