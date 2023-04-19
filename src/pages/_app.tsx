@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { css, Global } from "@emotion/react";
+import "../styles/global.css";
 
 import { RecoilRoot } from "recoil";
 
