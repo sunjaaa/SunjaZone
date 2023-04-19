@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Badge from "@/components/Badge";
 import { badge } from "@/constants";
 
-import { ProjectTechStackItems } from "../types";
+import { ProjectTechStackItems } from "@/types/project";
 
 interface Props {
   techStacks: ProjectTechStackItems;
