@@ -19,7 +19,7 @@ import Image from "next/image";
 import { IMAGE_URL } from "@/constants/constant";
 
 export interface Props {
-  project: ProjectDataItems;
+  project?: ProjectDataItems;
 }
 
 const ReadMe = ({ project }: Props) => {
@@ -39,17 +39,17 @@ const ReadMe = ({ project }: Props) => {
     return <Features features={item} />;
   };
 
-  const title = project.title;
-  const contributors = project.contributors;
+  const title: string = project?.title ?? "";
+  const contributors = project?.contributors;
 
-  const startDate = project.startDate;
-  const endDate = project.endDate;
+  const startDate = project?.startDate;
+  const endDate = project?.endDate;
 
-  const techStack = project.techStack;
+  const techStack: any = project?.techStack ?? "";
 
-  const summary = project.description;
+  const summary = project?.description;
 
-  const features = project.features;
+  const features: any = project?.features ?? "";
 
   const repos =
     {
