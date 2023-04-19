@@ -24,8 +24,6 @@ const Post = () => {
   const router = useRouter();
   const modal = useModal();
 
-  console.log("session", session);
-
   const [userId, setUserId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -56,8 +54,6 @@ const Post = () => {
   const isAdmin =
     status === "authenticated" &&
     authId === process.env.NEXT_PUBLIC_ADMIN_SECRET;
-
-  console.log("isAdmin", isAdmin);
 
   const moveToRootPage = () => {
     router.push(NAV.HREF.ROOT);
@@ -116,7 +112,6 @@ const Post = () => {
 
   const postOnBlog = async () => {
     // const isPosted = await postBlog(formData);
-    // console.log("formData", formData);
     // setIsLoading(false);
     // if (isPosted) {
     //   moveToBlogPage();
@@ -127,7 +122,6 @@ const Post = () => {
 
   const postOnIssue = async () => {
     // const isPosted = await postIssue(formData);
-    // console.log("formData", formData);
     // setIsLoading(false);
     // if (isPosted) {
     //   moveToIssuePage();

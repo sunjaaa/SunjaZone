@@ -2,8 +2,6 @@ import axios, { AxiosResponse } from "axios";
 
 const base = process.env.NEXT_PUBLIC_SERVER_URL;
 
-console.log("base", base);
-
 interface ResponseData {
   success: boolean;
 }
