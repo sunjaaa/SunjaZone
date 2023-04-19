@@ -1,62 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 
 import SeparatorLine from "@/components/SeparatorLine";
-import SectionList, { SectionListData } from "@/components/SectionList";
+import SectionList from "@/components/SectionList";
 
 import Banner from "./components/Banner";
 import ExperiencesList from "./components/ExperiencesList";
 import ExperienceHeader from "./components/ExperienceHeader";
 
-import { HomeDataItems, HomeDatas } from "./types";
-
-const DATA: SectionListData<HomeDataItems>[] = [
-  {
-    title: "Work Experiences",
-    data: [
-      {
-        id: "section-1",
-        icon: "cloudfare",
-        title: "Karos",
-        subtitle: "JIIN",
-        description: "React를 활용한 .... ........... 개발",
-        duration: "Nov 2022 ~ Jan 2023",
-      },
-      {
-        id: "section-2",
-        icon: "zoom",
-        title: "Whatssub-Lite",
-        subtitle: "Whatssub Internships",
-        description: "React-Native를 활용한 애플리케이션 개발",
-        duration: "Nov 2022 ~ Jan 2023",
-      },
-    ],
-  },
-  {
-    title: "Personal Experience",
-    data: [
-      {
-        id: "section-3",
-        icon: "zoom",
-        title: "Sunja-Zone",
-        subtitle: "Sunjaaa's website",
-        description: "NextJS를 활용한 웹사이트 개발",
-        duration: "Mar 2023 ~",
-      },
-      {
-        id: "section-4",
-        icon: "zoom",
-        title: "Target-Search",
-        subtitle: "Search your targets!",
-        description:
-          "스크랩핑로직 구현과 express로 만든 API로 react-typescript를 프론트로 사용하여 검색사이트 구현",
-        duration: "Mar 2023",
-      },
-    ],
-  },
-];
+import { HomeDataItems, HomeDatas } from "@/types/home";
+import { useHomes } from "@/hooks/useHomes";
+import { useProjects } from "@/hooks/useProjects";
+import _ from "lodash";
 
 const Main = () => {
+  const [homes, getHomes] = useHomes();
+  const [projects, getProjects] = useProjects();
+
+  useEffect(() => {
+    getHomes();
+    getProjects();
+  }, []);
+
   const keyExtractor = (item: HomeDataItems) => {
     return `experiences_${item.id}`;
   };
@@ -79,7 +44,7 @@ const Main = () => {
         <Box>
           <Banner />
           <SectionList
-            sections={DATA}
+            sections={homes}
             keyExtractor={keyExtractor}
             renderItem={renderItemHandler}
             renderSectionHeader={renderSectionHeaderHandler}
