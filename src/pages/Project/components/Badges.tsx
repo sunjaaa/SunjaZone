@@ -10,7 +10,7 @@ interface Props {
   techStacks: ProjectTechStackItems;
 }
 
-const Badges = ({ techStacks }: Props) => {
+const Badges = ({ techStacks = { badge: "" } }: Props) => {
   const name = techStacks.badge;
 
   const repos =

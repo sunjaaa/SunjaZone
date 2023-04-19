@@ -6,7 +6,9 @@ interface params {
   features: ProjectFeaturesItems;
 }
 
-const Features = ({ features }: params) => {
+const Features = ({
+  features = { feat: "데이터를 불러오는 중 입니다." },
+}: params) => {
   return <Description>{`•${features.feat}`}</Description>;
 };
 
