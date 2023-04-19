@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Icon from "@/components/Icon";
 import LargeItem from "@/components/LargeItem";
 import { NAV } from "@/constants";
-import { HomeDataItems } from "../types";
+import { HomeDataItems } from "@/types/home";
 import { helper } from "@/utils";
 
 interface Props {
