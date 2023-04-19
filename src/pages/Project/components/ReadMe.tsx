@@ -119,6 +119,7 @@ const ReadMe = ({ project }: Props) => {
         keyExtractor={(item: ProjectFeaturesItems) => item.feat}
         renderItem={renderDescriptionsHandler}
       />
+      <SeparatorLine transparent />
     </>
   );
 };
@@ -139,6 +140,7 @@ const ContentBox = styled.picture`
 
 const descriptionStyle = {
   marginTop: "1rem",
+  fontWeight: "bold",
 };
 
 const badgeListItemStyle = {
