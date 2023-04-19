@@ -11,7 +11,7 @@ interface Props {
   experience: HomeDataItems;
 }
 
-const ExperiencesList = ({ experience }: Props) => {
+const ExperiencesList = ({ experience = {} as HomeDataItems }: Props) => {
   const router = useRouter();
 
   const moveToProject = (id: string) => () => {
@@ -21,7 +21,7 @@ const ExperiencesList = ({ experience }: Props) => {
 
   return (
     <LargeItem
-      icon={<Icon icon={experience.icon ?? "sunjazone"} size={20} /> ?? <div />}
+      icon={<Icon icon={experience.icon} size={20} /> ?? <div />}
       title={experience.title}
       subtitle={experience.subtitle}
       description={experience.description}
