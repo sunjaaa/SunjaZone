@@ -10,3 +10,5 @@ export const IMAGE_URL = {
   sunjazone: "https://i.ibb.co/1qwCBF4/2023-04-12-5-11-01.png",
   targetSearch: "https://i.ibb.co/5htZ649/2023-04-12-5-10-31.png",
 };
+
+export const CMS_NAME = "Markdown";

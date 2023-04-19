@@ -14,7 +14,9 @@ import {
   ProjectDataItems,
   ProjectTechStackItems,
   ProjectFeaturesItems,
-} from "../types";
+} from "@/types/project";
+import Image from "next/image";
+import { IMAGE_URL } from "@/constants/constant";
 
 export interface Props {
   project: ProjectDataItems;
@@ -55,11 +57,40 @@ const ReadMe = ({ project }: Props) => {
       "Target-Search": github.TARGETSEARCH,
     }[title] || github.github_base;
 
+  const imgSrc =
+    {
+      "Whatssub-Lite": (
+        <Image
+          src={IMAGE_URL.whatssub}
+          alt={`alt_${IMAGE_URL.whatssub}`}
+          width={500}
+          height={700}
+          priority
+        />
+      ),
+      "Sunja-Zone": (
+        <Image
+          src={IMAGE_URL.sunjazone}
+          alt={`alt_${IMAGE_URL.sunjazone}`}
+          width={600}
+          height={700}
+          priority
+        />
+      ),
+      "Target-Search": (
+        <Image
+          src={IMAGE_URL.targetSearch}
+          alt={`alt_${IMAGE_URL.targetSearch}`}
+          width={700}
+          height={700}
+          priority
+        />
+      ),
+    }[title] || "";
+
   return (
     <>
-      <ContentBox>
-        <h1>이미지</h1>
-      </ContentBox>
+      <ContentBox style={ImageBoxStyle}>{imgSrc}</ContentBox>
       <BlockText title="📅 기간" thema={true} size={1.5} />
       <ContentBox>
         <CustomText label={`${startDate} ~ ${endDate}`} size={1.1} />
@@ -92,6 +123,14 @@ const ReadMe = ({ project }: Props) => {
   );
 };
 
+export default ReadMe;
+
+const ImageBoxStyle = {
+  justifyContent: "center",
+  alignItems: "center",
+  marginBottom: "1rem",
+};
+
 const ContentBox = styled.picture`
   display: flex;
   align-items: center;
@@ -105,5 +144,3 @@ const descriptionStyle = {
 const badgeListItemStyle = {
   marginRight: "0.2rem",
 };
-
-export default ReadMe;

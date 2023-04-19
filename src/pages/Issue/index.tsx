@@ -1,7 +1,32 @@
 import React from "react";
+import Post from "@/components/Post";
 
-const Issue = () => {
-  return <div>Isue</div>;
+import { getAllPosts } from "@/lib/api";
+
+import { PostData } from "@/types/post";
+
+interface Props {
+  allPosts: PostData[];
+  postType: string;
+}
+
+const Issue = ({ allPosts }: Props) => {
+  return <Post allPosts={allPosts} postType="issue" />;
 };
 
 export default Issue;
+
+export const getStaticProps = async () => {
+  const allPosts = getAllPosts([
+    "title",
+    "type",
+    "date",
+    "slug",
+    "coverImage",
+    "excerpt",
+  ]);
+
+  return {
+    props: { allPosts },
+  };
+};

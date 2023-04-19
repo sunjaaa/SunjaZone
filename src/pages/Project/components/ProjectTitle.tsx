@@ -1,6 +1,6 @@
 import BlockText from "@/components/BlockText";
 import React from "react";
-import { ProjectDatas } from "../types";
+import { ProjectDatas } from "@/types/project";
 
 const ProjectTitle = ({ title, data }: ProjectDatas) => {
   const id = data[0]?.id ?? "section-1";
