@@ -25,7 +25,7 @@ const PostHeader = ({ title, coverImage, date }: Props) => {
 export default PostHeader;
 
 const PostTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 `;
 

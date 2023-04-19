@@ -1,19 +1,13 @@
-import styled from "@emotion/styled";
-
 interface Props {
   content: string;
 }
 
 const PostBody = ({ content }: Props) => {
   return (
-    <Container>
+    <div>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </Container>
+    </div>
   );
 };
 
 export default PostBody;
-
-const Container = styled.div`
-  font-size: 1.25rem;
-`;
