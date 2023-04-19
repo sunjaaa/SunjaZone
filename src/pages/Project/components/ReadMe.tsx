@@ -45,11 +45,11 @@ const ReadMe = ({ project }: Props) => {
   const startDate = project?.startDate;
   const endDate = project?.endDate;
 
-  const techStack: any = project?.techStack ?? "";
-
   const summary = project?.description;
 
-  const features: any = project?.features ?? "";
+  const techStack: ProjectTechStackItems[] = project?.techStack ?? [];
+
+  const features: ProjectFeaturesItems[] = project?.features ?? [];
 
   const repos =
     {
