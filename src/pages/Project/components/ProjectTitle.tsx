@@ -1,19 +1,21 @@
 import BlockText from "@/components/BlockText";
 import React from "react";
 import { ProjectDatas } from "@/types/project";
+import styled from "@emotion/styled";
+import { SECTION } from "@/constants/constant";
 
 const ProjectTitle = ({ title, data = [] }: ProjectDatas) => {
-  const id = data[0]?.id ?? "section-1";
+  const id = data[0]?.id ?? SECTION.FIRST;
 
   return (
-    <div id={id} style={style}>
+    <TitleBox id={id}>
       <BlockText title={title} thema={true} size={2} />
-    </div>
+    </TitleBox>
   );
 };
 
 export default ProjectTitle;
 
-const style = {
-  paddingTop: "0.8rem",
-};
+const TitleBox = styled.div`
+  padding-top: "0.8rem";
+`;
