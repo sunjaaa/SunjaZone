@@ -3,7 +3,7 @@ import ErrorPage from "next/error";
 
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import Head from "next/head";
-import { CMS_NAME } from "@/constants/constant";
+import { CMS } from "@/constants/constant";
 import markdownToHtml from "@/lib/markdownToHtml";
 import PostHeader from "@/components/Post/components/post-header";
 import PostBody from "@/components/Post/components/post-body";
@@ -30,7 +30,7 @@ interface Post {
 
 const Post = ({ post }: Props) => {
   const router = useRouter();
-  const title = `${post.title} | Blog SunjaZone ${CMS_NAME}`;
+  const title = `${post.title} | Blog SunjaZone ${CMS.NAME}`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
