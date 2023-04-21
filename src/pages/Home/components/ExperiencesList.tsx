@@ -7,11 +7,7 @@ import { NAV } from "@/constants";
 import { HomeDataItems } from "@/types/home";
 import { helper } from "@/utils";
 
-interface Props {
-  experience: HomeDataItems;
-}
-
-const ExperiencesList = ({ experience = {} as HomeDataItems }: Props) => {
+const ExperiencesList = ({ experience = {} as HomeDataItems }) => {
   const router = useRouter();
 
   const moveToProject = (id: string) => () => {
@@ -19,14 +15,23 @@ const ExperiencesList = ({ experience = {} as HomeDataItems }: Props) => {
     setTimeout(() => helper.handleClickScroll(id), 400);
   };
 
+  const {
+    icon = "",
+    title = "",
+    subtitle = "",
+    description = "",
+    duration = "",
+    id = "",
+  } = experience;
+
   return (
     <LargeItem
-      icon={<Icon icon={experience.icon} size={20} /> ?? <div />}
-      title={experience.title}
-      subtitle={experience.subtitle}
-      description={experience.description}
-      duration={experience.duration}
-      onClick={moveToProject(experience.id)}
+      icon={icon && <Icon icon={icon} size={20} />}
+      title={title}
+      subtitle={subtitle}
+      description={description}
+      duration={duration}
+      onClick={moveToProject(id)}
     />
   );
 };
