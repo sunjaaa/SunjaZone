@@ -17,14 +17,11 @@ import {
 } from "@/types/project";
 import Image from "next/image";
 import { IMAGE_URL } from "@/constants/constant";
+import RenderImage from "./RenderImage";
 
-export interface Props {
-  project?: ProjectDataItems;
-}
-
-const ReadMe = ({ project }: Props) => {
+const ReadMe = ({ project = {} as ProjectDataItems }) => {
   const openGithubRepo = (url: string) => () => {
-    window.open(url);
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const renderBadgesHandler = ({ item }: { item: ProjectTechStackItems }) => {
@@ -39,17 +36,17 @@ const ReadMe = ({ project }: Props) => {
     return <Features features={item} />;
   };
 
-  const title: string = project?.title ?? "";
-  const contributors = project?.contributors;
+  const title = project.title ?? "";
+  const contributors = project.contributors ?? "";
 
-  const startDate = project?.startDate;
-  const endDate = project?.endDate;
+  const startDate = project.startDate ?? "";
+  const endDate = project.endDate ?? "";
 
-  const summary = project?.description;
+  const summary = project.description ?? "";
 
-  const techStack: ProjectTechStackItems[] = project?.techStack ?? [];
+  const techStack: ProjectTechStackItems[] = project.techStack ?? [];
 
-  const features: ProjectFeaturesItems[] = project?.features ?? [];
+  const features: ProjectFeaturesItems[] = project.features ?? [];
 
   const repos =
     {
@@ -57,40 +54,11 @@ const ReadMe = ({ project }: Props) => {
       "Target-Search": github.TARGETSEARCH,
     }[title] || github.github_base;
 
-  const imgSrc =
-    {
-      "Whatssub-Lite": (
-        <Image
-          src={IMAGE_URL.whatssub}
-          alt={`alt_${IMAGE_URL.whatssub}`}
-          width={500}
-          height={700}
-          priority
-        />
-      ),
-      "Sunja-Zone": (
-        <Image
-          src={IMAGE_URL.sunjazone}
-          alt={`alt_${IMAGE_URL.sunjazone}`}
-          width={600}
-          height={700}
-          priority
-        />
-      ),
-      "Target-Search": (
-        <Image
-          src={IMAGE_URL.targetSearch}
-          alt={`alt_${IMAGE_URL.targetSearch}`}
-          width={700}
-          height={700}
-          priority
-        />
-      ),
-    }[title] || "";
-
   return (
     <>
-      <ContentBox style={ImageBoxStyle}>{imgSrc}</ContentBox>
+      <ContentBox style={ImageBoxStyle}>
+        <RenderImage title={title} />
+      </ContentBox>
       <BlockText title="📅 기간" thema={true} size={1.5} />
       <ContentBox>
         <CustomText label={`${startDate} ~ ${endDate}`} size={1.1} />
