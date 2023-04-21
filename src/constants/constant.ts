@@ -11,4 +11,16 @@ export const IMAGE_URL = {
   targetSearch: "https://i.ibb.co/5htZ649/2023-04-12-5-10-31.png",
 };
 
-export const CMS_NAME = "Markdown";
+export const CMS = {
+  NAME: "Markdown",
+};
+
+export const SECTION = {
+  FIRST: "section-1",
+};
+
+export const PROJECT = {
+  WHATSSUB: "Whatssub-Lite",
+  SUNJAZONE: "Sunja-Zone",
+  TARGETSEARCH: "Target-Search",
+};
