@@ -7,7 +7,6 @@ import { PostData } from "@/types/post";
 
 interface Props {
   allPosts: PostData[];
-  postType: string;
 }
 
 const Blog = ({ allPosts }: Props) => {
