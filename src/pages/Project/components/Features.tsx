@@ -1,14 +1,8 @@
-import { ProjectFeaturesItems } from "@/types/project";
-import styled from "@emotion/styled";
 import React from "react";
+import styled from "@emotion/styled";
+import { ProjectFeaturesItems } from "@/types/project";
 
-interface params {
-  features: ProjectFeaturesItems;
-}
-
-const Features = ({
-  features = { feat: "데이터를 불러오는 중 입니다." },
-}: params) => {
+const Features = ({ features = {} as ProjectFeaturesItems }) => {
   return <Description>{`•${features.feat}`}</Description>;
 };
 
