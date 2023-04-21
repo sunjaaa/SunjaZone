@@ -6,13 +6,7 @@ import { badge } from "@/constants";
 
 import { ProjectTechStackItems } from "@/types/project";
 
-interface Props {
-  techStacks: ProjectTechStackItems;
-}
-
-const Badges = ({ techStacks = { badge: "" } }: Props) => {
-  const name = techStacks.badge;
-
+const Badges = ({ techStacks = {} as ProjectTechStackItems }) => {
   const repos =
     {
       react: badge.REACT,
@@ -23,7 +17,7 @@ const Badges = ({ techStacks = { badge: "" } }: Props) => {
       typescript: badge.TYPESCRIPT,
       docker: badge.DOCKER,
       mariadb: badge.MARIADB,
-    }[name] || badge.ERROR;
+    }[techStacks.badge] || badge.ERROR;
 
   return (
     <Container>
